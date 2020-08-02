@@ -32,13 +32,13 @@ const style = css`
 	}
 	input, button {
 		text-align:center;
-		padding: .4em .4em .4em .4em;
-		display:inline;
-		font-size:1.25em;
+		font-size:1.5em;
+		font-family: inherit;
+		padding: 0em .4em 0em .4em;
 		margin:0;
+		height:2em;
 		border:2px solid white;
 		box-sizing: border-box;
-		font-family: inherit;
 	}
 	input {
 		text-transform:uppercase;
@@ -52,6 +52,7 @@ const style = css`
 		color:white;
 		border-radius: 0;
 		transition: .5s;
+		/* height:100%; */
 	}
 	.button:hover{
 		background-color: white;
