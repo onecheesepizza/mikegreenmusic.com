@@ -5,7 +5,8 @@ import { css } from 'emotion';
 const transitionDelay = 250; //ms
 const transitionTime = "1.5s";
 const bgImage = process.env.PUBLIC_URL+"/images/mike-green-jag-studio-pic.jpg";
-const mobileDevice = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false;
+//disable Parallax with incompatible browsers
+const disableParallax = /Firefox|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false;
 
 //component
 function ParallaxBG({scrollPosition}) {
@@ -21,10 +22,10 @@ function ParallaxBG({scrollPosition}) {
 	//JSX
 	return (
 		<div 
-		// bg blur
+		//disable Parallax with incompatible browsers
+		style={disableParallax?  {background: "none"} : {backgroundPositionY: -scrollPosition * .4}}
+		// bg load blur
 		className={style+" "+ (blurBG ? blurBGOn : blurBGOff )}
-		// disable parallax on mobile
-		style={mobileDevice?  {backgroundPosition: "30% 0%", backgroundSize: "auto 100vh", backgroundRepeat: "no-repeat"} : {backgroundPositionY: -scrollPosition * .4}}
 		/>
 	)
 };
