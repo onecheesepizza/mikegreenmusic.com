@@ -4,7 +4,7 @@ import { css } from 'emotion';
 //config
 const transitionDelay = 250; //ms
 const transitionTime = "1.5s";
-const bgImage = "/images/mike-green-jag-studio-pic.jpg";
+const bgImage = process.env.PUBLIC_URL+"/images/mike-green-jag-studio-pic.jpg";
 const mobileDevice = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false;
 
 //component
