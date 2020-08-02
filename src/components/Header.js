@@ -24,11 +24,9 @@ const style=css`
     position:absolute;
     right:0;
     padding:1em;
-    svg {
-        font-size:1em;
-    }
     p {
         text-align:right;
+        margin-right:1.25em;
     }
     @media only screen and (max-width: 800px) {
         left:0;

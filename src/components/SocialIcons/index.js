@@ -88,14 +88,14 @@ const style = css`
 		padding:0;
 		margin:0;
 	}
-	SVG {
+	svg {
 		fill:white;
         width:2em;
 		margin: .10em .75em .75em .75em;
 		opacity:.75;
 		transition: ${hoverTransitionTime};
 	}
-	SVG:hover {
+	svg:hover {
 		opacity:1;
 		transition: ${hoverTransitionTime};
 	}
