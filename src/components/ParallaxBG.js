@@ -1,0 +1,59 @@
+import React, {useState, useEffect} from "react";
+import { css } from 'emotion';
+
+//config
+const transitionDelay = 250; //ms
+const transitionTime = "1.5s";
+const bgImage = "/images/mike-green-jag-studio-pic.jpg";
+const mobileDevice = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false;
+
+//component
+function ParallaxBG({scrollPosition}) {
+	//state: bg image transition
+	const [blurBG, setBlurBG] = useState(true);
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setBlurBG(false);
+		}, transitionDelay);
+		return () => clearTimeout(timer);
+	}, []);
+
+	//JSX
+	return (
+		<div 
+		// bg blur
+		className={style+" "+ (blurBG ? blurBGOn : blurBGOff )}
+		// disable parallax on mobile
+		style={mobileDevice?  {backgroundPosition: "30% 0%", backgroundSize: "auto 100vh", backgroundRepeat: "no-repeat"} : {backgroundPositionY: -scrollPosition * .4}}
+		/>
+	)
+};
+
+//styles
+const blurBGOn = css`
+	filter: blur(20px);
+	-webkit-filter: blur(20px);
+`;
+
+const blurBGOff = css`
+	filter: blur(0px);
+	-webkit-filter: blur(0px);
+`;
+
+const style = css`
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1;
+	transition: opacity, filter ${transitionTime};
+	background: url(${bgImage}) no-repeat center center fixed; 
+	background-color:black;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+`;
+
+export default ParallaxBG;
