@@ -59,10 +59,10 @@ const style = css`
 		color:black;
 		border:2px solid white;
 	}
-	@media only screen and (max-width: 500px) {
+	@media only screen and (max-width: 600px) {
 		input, button {
 			width:100%;
-			padding: .4em .25em .4em .25em;
+			/* padding: .4em .25em .4em .25em; */
 		}
 	}
 `;
