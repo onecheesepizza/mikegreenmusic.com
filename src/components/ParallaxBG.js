@@ -5,16 +5,17 @@ import { css } from 'emotion';
 const transitionDelay = 250; //ms
 const transitionTime = "1.5s";
 const bgImage = process.env.PUBLIC_URL+"/images/mike-green-jag-studio-pic.jpg";
-//disable Parallax with incompatible browsers
-const disableParallax = /Firefox|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false;
+//enable parallax only for Chrome
+const enableParallax = /Chrome/i.test(navigator.userAgent) ? true : false;
 
 //component
 function ParallaxBG({scrollPosition}) {
 	//state: bg image transition
-	const [blurBG, setBlurBG] = useState(true);
+	const [componentLoaded, setComponentLoaded] = useState(false);
 	useEffect(() => {
+		//handle transition delay
 		const timer = setTimeout(() => {
-			setBlurBG(false);
+			setComponentLoaded(true);
 		}, transitionDelay);
 		return () => clearTimeout(timer);
 	}, []);
@@ -22,10 +23,10 @@ function ParallaxBG({scrollPosition}) {
 	//JSX
 	return (
 		<div 
-		//disable Parallax with incompatible browsers
-		style={disableParallax?  {background: "none"} : {backgroundPositionY: -scrollPosition * .4}}
-		// bg load blur
-		className={style+" "+ (blurBG ? blurBGOn : blurBGOff )}
+		// parallax scroll tracking (if enabled)
+		style={enableParallax ? {backgroundPositionY: -scrollPosition * .4} : null}
+		// bg load blur, parallax styles (if enabled)
+		className={(componentLoaded ? blurBGOff : blurBGOn )+" "+(enableParallax ? parallaxStyle : fallbackStyle)}
 		/>
 	)
 };
@@ -41,7 +42,7 @@ const blurBGOff = css`
 	-webkit-filter: blur(0px);
 `;
 
-const style = css`
+const parallaxStyle = css`
 	position:absolute;
 	top:0;
 	left:0;
@@ -55,6 +56,16 @@ const style = css`
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+`;
+
+const fallbackStyle = css`
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1;
+	background:none;
 `;
 
 export default ParallaxBG;
