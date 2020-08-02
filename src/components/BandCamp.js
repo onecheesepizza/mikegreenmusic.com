@@ -18,7 +18,7 @@ function BandCamp() {
 	};
 	//viewport visibility state hook for style transition
 	const [ref, inView] = useInView({
-		threshold: .4, //% inside viewport before inView===true
+		threshold: .2, //% inside viewport before inView===true
 		triggerOnce: true
 	  })
 
