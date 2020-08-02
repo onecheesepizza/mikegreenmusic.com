@@ -38,6 +38,7 @@ const style = css`
     position: -webkit-sticky;
     bottom: 0px;
     margin: 0 auto;
+    padding-bottom:1em;
     width:100%;
     z-index:0;
     #footerText {
