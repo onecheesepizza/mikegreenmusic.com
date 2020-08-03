@@ -32,7 +32,7 @@ const style = css`
 	}
 	input, button {
 		text-align:center;
-		font-size:1.5em;
+		font-size:1.25em;
 		font-family: inherit;
 		padding: 0em .4em 0em .4em;
 		margin:0;
