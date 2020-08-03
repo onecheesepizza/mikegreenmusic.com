@@ -12,4 +12,5 @@ built with
 
 live site: [mikegreenmusic.com](https://mikegreenmusic.com)
 
-deployed to Netlify   
+deployed to Netlify  
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a6d4c5a8-6c04-4571-856c-55b79156145b/deploy-status)](https://app.netlify.com/sites/mikegreenmusic/deploys)
