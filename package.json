@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "git push && netlify watch",
+    "deploy": "git push origin master && netlify watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
