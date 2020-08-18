@@ -39,6 +39,7 @@ const style = css`
 		height:2em;
 		border:2px solid white;
 		box-sizing: border-box;
+		vertical-align: middle
 	}
 	input {
 		text-transform:uppercase;
@@ -52,7 +53,6 @@ const style = css`
 		color:white;
 		border-radius: 0;
 		transition: .5s;
-		/* height:100%; */
 	}
 	.button:hover{
 		background-color: white;
@@ -62,7 +62,6 @@ const style = css`
 	@media only screen and (max-width: 600px) {
 		input, button {
 			width:100%;
-			/* padding: .4em .25em .4em .25em; */
 		}
 	}
 `;
