@@ -26,7 +26,7 @@ function Footer() {
             <p id="footerText">
             © {getDate()} Mike Green - All Rights Reserved<br/>
             Background Photo by <a href="https://jagstudios.net/" target="_blank" rel="noopener noreferrer">JAGstudios</a><br/>
-            site by <a href="https://onecheesepizza.dev" target="_blank" rel="noopener noreferrer">onecheesepizza</a>
+            site by <a href="https://zebranode.dev" target="_blank" rel="noopener noreferrer">zebranode</a>
             </p>
         </div>
     );
